@@ -1,4 +1,4 @@
-#!/home/daniella/Documents/core/Django/IP/Insta/virtual/bin/python3.6
+#!/home/daniella/Documents/core/Django/IP/Insta/virtual/bin/python
 from django.core import management
 
 if __name__ == "__main__":

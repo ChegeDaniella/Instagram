@@ -1,0 +1,39 @@
+{% load bootstrap3 %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block styles %}
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    {% endblock %}
+</head>
+<body>
+    <div class="header">
+        <h2 class="logo">Photo Share</h2>
+        <input type="checkbox" id="chk">
+        <label for="chk" class="show-menu-btn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <ul class="menu">
+            <a href="#">Home</a>
+            <a href="#">Profile</a>
+            <a href="#">Login</a>
+            <label for="chk" class="hide-menu-btn">
+                <i class="fas fa-times"></i>
+            </label>
+        </ul>
+    </div>
+    <p>navbar</p>
+
+   {% block scripts %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://kit.fontawesome.com/b6a799f222.js" crossorigin="anonymous"></script>
+        {% bootstrap_javascript %}
+    {% endblock %}
+    
+</body>
+</html>

@@ -7,6 +7,7 @@ urlpatterns =[
     url('^$',views.index,name = "index"),
     url('^profile/',views.profile,name = "profile"),
     url('^new-post/',views.new_post,name = "new_post"),
+    url('^show-post/',views.show_post,name = "show_post"),
 
 ]
 if settings.DEBUG:

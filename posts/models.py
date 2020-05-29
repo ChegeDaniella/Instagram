@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Profile(models.Model):
@@ -9,6 +10,6 @@ class Post(models.Model):
     image = models.ImageField(upload_to = 'saved/')
     image_name = models.CharField(max_length = 50)
     image_caption = models.CharField(max_length = 600)
-    image_profile = models.ForeignKey(Profile,on_delete=models.CASCADE)
+    image_profile = models.ForeignKey(User,on_delete=models.CASCADE)
     
 

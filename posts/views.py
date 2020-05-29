@@ -19,4 +19,5 @@ def new_post(request):
             post.save()
         return redirect('index')  
     else:
-        return render(request,'all-info/upload-page.html',{"postform":form})          
+        form = NewPostForm()
+        return render(request,'upload-page.html',{"form":form})          

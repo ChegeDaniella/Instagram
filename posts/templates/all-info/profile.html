@@ -6,3 +6,13 @@
 {% bootstrap_css %}
 <link rel="stylesheet" href="{% static 'css/.css' %}">
 {% endblock %}
+
+{% block content %}
+{% for users in user %}
+{{users.user}}
+<img src="{{users.profile_photo.url}}">
+{{users.bio}}
+{% endfor %}
+
+
+{% endblock %}

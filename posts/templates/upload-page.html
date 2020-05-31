@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{% static 'css/.css' %}"> 
 {% endblock %}
 </head>
+{% include 'navbar.html' %}
 <body>
     <form action="{% url 'new_post'%}" method="post" enctype="multipart/form-data">
         {%csrf_token%}

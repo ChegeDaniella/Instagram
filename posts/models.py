@@ -8,13 +8,14 @@ class Profile(models.Model):
     bio = models.CharField(max_length = 30)
 
     def __str__(self):
-        return f'{self.user}Profile'
+        return f'{self.user} Profile'
 
     def save_profile(self):
         self.save()
 
 class Comments(models.Model):
-    comments = models.CharField(max_length = 200)    
+    comments = models.CharField(max_length = 200)  
+    
     def __str__(self):
         return f'{self.comments} Comments'  
 

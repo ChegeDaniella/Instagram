@@ -28,7 +28,7 @@ class Post(models.Model):
     image_caption = models.CharField(max_length = 600)
     image_profile = models.ForeignKey(User,on_delete=models.CASCADE)
     image_likes = models.IntegerField(default=0)
-    image_comments = models.CharField(max_length=500)
+
 
     def __str__(self):
         return self.image_name
@@ -45,7 +45,8 @@ class Post(models.Model):
 
     
 class Comments(models.Model):
-    comments = models.ForeignKey(Post, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    comments = models.CharField(max_length=800, null=False)
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     
     def __str__(self):

@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from PIL import Image
 
 # Create your models here.
 class Profile(models.Model):
@@ -12,6 +13,15 @@ class Profile(models.Model):
 
     def save_profile(self):
         self.save()
+
+    # def save(self):
+    #     img = Image.open(self.profile_photo.path)
+
+    #     if img.height > 300 or img.width >300:
+    #         output_size = (300, 300)
+    #         img.thumbnail(output_size)
+    #         img.save(self.profile_photo.path)
+
 
 class Comments(models.Model):
     comments = models.CharField(max_length = 200)  

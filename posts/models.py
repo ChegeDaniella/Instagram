@@ -27,7 +27,7 @@ class Post(models.Model):
     image_name = models.CharField(max_length = 50)
     image_caption = models.CharField(max_length = 600)
     image_profile = models.ForeignKey(User,on_delete=models.CASCADE)
-    image_likes = models.IntegerField(default=0)
+    image_likes = models.ManyToManyField(User,default=None, blank=True ,related_name="image_likes")
 
 
     def __str__(self):
@@ -39,23 +39,24 @@ class Post(models.Model):
     def save_post(self):
         self.save()
 
+    def nun_likes(self):
+        return self.image_likes.all().count()    
+
     def delete_post(self):
         post = self.object.filter(pk=id).delete()
         return post    
 
     
 class Comments(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE)
-    comments = models.CharField(max_length=800, null=False)
+    post = models.ForeignKey(Post, related_name="comments" , on_delete=models.CASCADE)
+    body = models.CharField(max_length=800, null=False)
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     
-    def __str__(self):
-        return f'{self.comments} Comments'  
-
     def save_comment(self):
         self.save()
 
-    
+    def __str__(self):
+        return self.body 
 
 
 

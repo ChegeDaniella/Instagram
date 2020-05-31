@@ -47,4 +47,6 @@ def new_post(request):
         return redirect('show_post')  
     else:
         form = NewPostForm()
-        return render(request,'upload-page.html',{"form":form})          
+        return render(request,'upload-page.html',{"form":form})     
+        
+             

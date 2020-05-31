@@ -15,25 +15,28 @@
     <!-- <!-- {% for posts in post %}
 {{posts.image_name}}
 {% endfor %} -->
-    <div class="container">
+    <div class="ui container">
         <div class="row">
             {% for posts in post %}
             <div class="col-md-6">
                 Name:{{posts.image_name}}
             </div>
             <div class="col-md-6">
-                <img style="width: 300px; height:100px;" src="{{posts.image.url}}">
+                <img style="width: 300px; height:100px;" src="{{posts.image.url}}"><br>
            
-            
-            
+
             Caption:{{posts.image_caption}}<br>
             Likes:{{posts.image_likes}}<br>
-            Comments:{{posts.image_comments}}<br>
             Profile:{{posts.image_profile}}<br>
             </div>
             
         </div>
     </div> 
+    {% endfor %}
+    {% for comments in post.comments.all %}
+    <p>{{comments.body}}</p>
+    {% empty %}
+    <p>There is no comments</p>
     {% endfor %}
     {% endblock %}
 </body>

@@ -1,3 +1,8 @@
 p {
     color: blue;
 }
+body{
+    background-image: url(/static/img/cover.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}

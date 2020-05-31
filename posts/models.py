@@ -5,7 +5,7 @@ from PIL import Image
 # Create your models here.
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    profile_photo = models.ImageField(upload_to = 'saved/')
+    profile_photo = models.ImageField(upload_to = 'saved/' ,default="default.jpg")
     bio = models.CharField(max_length = 30)
 
     def __str__(self):
@@ -22,25 +22,13 @@ class Profile(models.Model):
     #         img.thumbnail(output_size)
     #         img.save(self.profile_photo.path)
 
-
-class Comments(models.Model):
-    comments = models.CharField(max_length = 200)  
-    
-    def __str__(self):
-        return f'{self.comments} Comments'  
-
-    def save_comment(self):
-        self.save()
-
-    
-
 class Post(models.Model):
     image = models.ImageField(upload_to = 'saved/')
     image_name = models.CharField(max_length = 50)
     image_caption = models.CharField(max_length = 600)
     image_profile = models.ForeignKey(User,on_delete=models.CASCADE)
     image_likes = models.IntegerField(default=0)
-    image_comments = models.ForeignKey(Comments, on_delete=models.CASCADE)
+    image_comments = models.CharField(max_length=500)
 
     def __str__(self):
         return self.image_name
@@ -56,4 +44,17 @@ class Post(models.Model):
         return post    
 
     
+class Comments(models.Model):
+    comments = models.ForeignKey(Post, on_delete=models.CASCADE)
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return f'{self.comments} Comments'  
+
+    def save_comment(self):
+        self.save()
+
+    
+
+
 

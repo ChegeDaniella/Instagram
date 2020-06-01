@@ -1,0 +1,19 @@
+{% extends 'all-info/base.html' %}
+
+{% load bootstrap3 %}
+{% load static %}
+
+
+
+{% block styles %}
+{% bootstrap_css %}
+<link rel="stylesheet" href="{% static 'css/index1.css' %}">
+{% endblock %}
+<body>
+  {% block content %}
+
+<p>Welcome</p>
+{% endblock %}  
+</body>
+
+

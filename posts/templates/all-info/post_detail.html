@@ -1,0 +1,27 @@
+{% extends 'all-info/base.html' %}
+
+{% load bootstrap3 %}
+{% load static %}
+
+{% block styles %}
+{% bootstrap_css %}
+<link rel="stylesheet" href="{% static 'css/post-detail.css' %}">
+{% endblock %}
+
+{% block content %}
+<article class="media content-section">
+    <div class="media-body">
+        <img style="width: 500px;height:500px; " src="{{object.image.url}}">
+    </div>
+    <h2 class="article-title">
+        Name:{{object.image_name}}
+    </h2>
+    <p class="article-content">
+        Caption:{{object.image_caption}}<br>
+        Profile:{{object.image_profile}}<br>
+
+    </p>
+
+</article>
+
+{% endblock %}

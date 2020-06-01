@@ -1,0 +1,47 @@
+{% extends 'all-info/base.html' %}
+{% load bootstrap3 %}
+{% load static %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+ 
+
+{% block styles %}
+{% bootstrap_css %}
+<link rel="stylesheet" href="{% static 'css/.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="media">
+                <img class="rounded-circle" style="height: 400px;widows: 450px;" src="{{user.profile.profile_photo.url}}"> 
+                <div class="media-body">
+                    <h2 class="account-heading">Username: {{ user.username}}</h2>
+                    <p class="text-secondary"><strong>User Email: </strong>{{user.email}}</p>
+                    <p class="text-secondary"><strong>Bio:</strong>  {{user.profile.bio}}</p>
+                </div>
+            </div>
+       </div>
+        <div class="col-md-6">
+            <form method="POST" enctype="multipart/form-data">
+                {%csrf_token%}
+                <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Profile info</legend>
+                    {{ u_form|crispy}}
+                    {{ p_form|crispy}}
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-outline-info" type="submit"> Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    {% if profiles in profile %}
+    {{profiles.image_caption}}
+    Profile:{{profiles.image_profile}}<br>
+    {% endif %}
+</div>
+
+
+{% endblock %}

@@ -37,6 +37,10 @@
             </form>
         </div>
     </div>
+    {% if profiles in profile %}
+    {{profiles.image_caption}}
+    Profile:{{profiles.image_profile}}<br>
+    {% endif %}
 </div>
 
 

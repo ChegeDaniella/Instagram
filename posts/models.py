@@ -14,6 +14,11 @@ class Profile(models.Model):
     def save_profile(self):
         self.save()
 
+    @classmethod
+    def search_by_user(cls,search_term):
+        users = cls.objects.filter(user__username__icontains=search_term)
+        return users    
+
     # def save(self):
     #     img = Image.open(self.profile_photo.path)
 

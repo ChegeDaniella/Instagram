@@ -19,13 +19,13 @@
         <div class="row">
             {% for posts in post %}
             <div class="col-md-6">
-                Name:{{posts.image_name}}
+                 Name:{{posts.image_name}}<br>
             </div>
             <div class="col-md-6">
-                <img style="width: 300px; height:100px;" src="{{posts.image.url}}"><br>
+               <a href="{% url 'post-detail' posts.id %}"><img style="width: 300px; height:100px;" src="{{posts.image.url}}"></a> <br>
            
-            Caption:{{posts.image_caption}}<br>
-            Profile:{{posts.image_profile}}<br>
+            <!-- Caption:{{posts.image_caption}}<br>
+            Profile:{{posts.image_profile}}<br> -->
                 <form action="{% url 'like_post'%}" method="POST">
                     {% csrf_token %}
                     <input type="hidden" name="post_id" value="{{posts.id}}">

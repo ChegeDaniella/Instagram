@@ -49,6 +49,11 @@ class PostListView(ListView):
     model = Post
     template_name = 'all-info/display.html'
     context_object_name = 'post'
+
+class PostDetailView(DetailView):
+    model = Post
+    template_name = 'all-info/post_detail.html'
+    
     
 
 
@@ -94,4 +99,26 @@ def new_post(request):
         form = NewPostForm()
         return render(request,'upload-page.html',{"form":form})     
 
+def show_my_post(request):
+    current_user = request.user
+    post = get_object_or_404(Post.objects.all())
+    profile = post.current_user
 
+    context = {
+        "profile" : profile
+    }
+    return render(request,'all-info/profile.html', context) 
+
+def search_results(request):
+
+    if 'post_profile' in request.GET and request.GET["post_profile"]:
+        search_term = request.GET.get("post_profile")
+        searched_users = Profile.search_by_user(search_term)
+        message = f"{search_term}"
+
+        return render(request, 'all-info/search.html',{"message":message,"profiles": searched_users})
+
+    else:
+        message = "You haven't searched for any user"
+        return render(request, 'all-info/search.html',{"message":message})    
+        

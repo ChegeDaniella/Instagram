@@ -26,8 +26,8 @@ MODE=config("MODE", default="dev")
 SECRET_KEY = 'z)vace_z5us0#+)p059189c2d$l3%5(strc%27mjwv8fhrqvr&'
 # SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = True
+#DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = []
 

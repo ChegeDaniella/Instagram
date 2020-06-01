@@ -58,6 +58,9 @@ class Like(models.Model):
     def __str__(self):
         return self.value
 
+    def save_like(self):
+        self.save()    
+
     
 class Comments(models.Model):
     post = models.ForeignKey(Post, related_name="comments" , on_delete=models.CASCADE)

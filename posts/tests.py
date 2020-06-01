@@ -1,10 +1,28 @@
 from django.test import TestCase
-from .models import Post,Profile,Comments
+from .models import Post,Profile,Comments,Like
 
 # Create your tests here.
 class profileTestModel(TestCase):
     def setUp(self):
         self.new_profile=Profile(profile_photo = 'default.jpg', bio = "This is a test")
+
+    def tearDown(self):
+        Profile.objects.all().delete() 
+
+    def test_instance_profile(self):
+        self.assertTrue(isinstance(self.new_profile,Profile))    
+
+    def test_save_profile(self):
+        self.new_profile.save_profile()    
+
+class commentsTestModel(TestCase):
+    def setUp(self):
+        self.new_profile=Profile(profile_photo = 'default.jpg', bio = "This is a test")
+        self.new_profile.save_profile()
+
+        self.user
+
+
 class PostTestModel(TestCase):
 
     def setUp(self):

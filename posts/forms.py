@@ -4,7 +4,7 @@ from .models import Post, User,Profile,Comments
 class NewPostForm(forms.ModelForm):
     class Meta:
         model = Post
-        exclude = ['image_profile']
+        exclude = ['image_profile','image_likes']
 
 class UserUpdateForm(forms.ModelForm):
     email = forms.EmailField()

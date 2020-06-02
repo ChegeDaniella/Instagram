@@ -1,8 +1,20 @@
-p {
-    color: blue;
-}
+
 body{
     background-image: url(/static/img/cover.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+}
+.head h1 {
+    font-size: 120px;
+    
+}
+.head {
+    color: white;
+    text-align: right;
+    padding-right: 10%;
+    padding-top: 7%;
+    font-family: 'Merriweather', serif;
+    font-size: 60px;
+    
+    
 }

@@ -8,11 +8,19 @@
 {% block styles %}
 {% bootstrap_css %}
 <link rel="stylesheet" href="{% static 'css/index1.css' %}">
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet"> 
 {% endblock %}
 <body>
   {% block content %}
+  <div class="head">
+  <h1>
+    Welcome
+  </h1>
+  <p>
+    This is an application where you can like and like a comment on another persons picture 
+  </p>
+  </div>
 
-<p>Welcome</p>
 {% endblock %}  
 </body>
 

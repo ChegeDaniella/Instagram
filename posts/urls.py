@@ -12,7 +12,7 @@ urlpatterns =[
     url('^show-post/',PostListView.as_view(),name = "show_post"),
     path('post/<int:pk>/',PostDetailView.as_view(),name = "post-detail"),
     url('^like-post/',views.like_post,name = "like_post"),
-    url(r'^search/', views.search_results, name='search_results')
+    url(r'^search/', views.search_results, name='search_results'),
 
 ]
 if settings.DEBUG:

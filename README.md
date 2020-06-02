@@ -47,3 +47,44 @@ Ensure that you have installed all the extensions mentioned above in the envirom
 After installation the application should be able to render from the local host.On the terminal run command
 
 ![Rendered image](static/img/home1.png)
+
+```
+python3.6 manage.py runserver
+```
+
+Then click on the http://127.0.0.1:8000 to be able to view your project in the browser
+
+
+## Running Test
+
+As this is a python application we have tests.To be able to run the tests run the following command in your terminal
+
+```
+python3.6 manage.py test
+```
+
+### Breaking down the tests
+
+We run tests to ensure that the of the functions and models we use are doing what they are meant to do.
+
+In the application we have 3 class test models which go hand in hand with the models in our database.Each model has a save test function.An example
+
+```
+        def test_save_profile(self):
+            self.new_profile.save_profile()  
+```
+
+This test is for testing whether a profile can be saved.
+
+## Built with 
+* [Python](https://docs.python.org/release/3.6.9/tutorial/index.html) This is the language used
+* [Django](https://docs.djangoproject.com/en/3.0/) The web framework used
+* [SQLprogest](https://docs.djangoproject.com/en/3.0/topics/db/sql/) The database that has been used.The link is specific to the django frame work.
+
+## Author
+
+Daniella Wangechi chege
+
+## Lisence
+
+[Lisence](/License)

@@ -88,6 +88,6 @@ This test is for testing whether a profile can be saved.
 
 Daniella Wangechi chege
 
-## Lisence
+## license
 
-[Lisence](/License)
+[license](/License)
